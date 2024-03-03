@@ -38,7 +38,7 @@
     <input class="btn btn-primary" type="submit">
 
     <script>
-        document.getElementById("expiration_date").value = "{{ date($client->membership_expiration) }}";
+        document.getElementById("expiration_date").value = "{{ date_format($client->membership_expiration) }}";
     </script>
 </form>
 @endsection
