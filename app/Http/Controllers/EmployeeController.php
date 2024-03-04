@@ -6,6 +6,7 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use View;
 use Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class EmployeeController extends Controller
 {

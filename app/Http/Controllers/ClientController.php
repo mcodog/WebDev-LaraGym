@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use View;
 use Redirect;
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Client;
+use App\Http\Requests\StoreClientRequest;
 
 class ClientController extends Controller
 {
@@ -19,13 +21,15 @@ class ClientController extends Controller
         return View::make('admin.clients.create');
     }
 
-    public function store(Request $request) {
-        $first_name = $request->first_name;
-        $last_name = $request->last_name;
-        $age = $request->age;
-        $gender = $request->gender;
-        $type = $request->type;
-        $expiration = $request->expiration_date;
+    public function store(StoreClientRequest $request) {
+        $data = $request->validated();
+
+        $first_name = $data['first_name'];
+        $last_name = $data['last_name'];
+        $age = $data['age'];
+        $gender = $data['gender'];
+        $type = $data['type'];
+        $expiration = $data['expiration_date'];
         $visits = 0;
 
         $client = new Client();

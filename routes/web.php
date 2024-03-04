@@ -46,8 +46,20 @@ Route::prefix('employee')->group(function () {
 
 Route::prefix('equipment')->group(function () {
     Route::get('/', [EquipmentController::class, 'index'])->name('equipment.index');
+    Route::get('/{id}/edit', [EquipmentController::class, 'edit'])->name('equipment.edit');
+    Route::get('/{id}/delete', [EquipmentController::class, 'delete'])->name('equipment.delete');
+    Route::post('/{id}/update', [EquipmentController::class, 'update'])->name('equipment.update');
+
+    Route::get('/create', [EquipmentController::class, 'create'])->name('equipment.create');
+    Route::post('/store', [EquipmentController::class, 'store'])->name('equipment.store');
 });
 
 Route::prefix('manufacturer')->group(function () {
     Route::get('/', [ManufacturerController::class, 'index'])->name('manufacturer.index');
+    Route::get('/{id}/edit', [ManufacturerController::class, 'edit'])->name('manufacturer.edit');
+    Route::get('/{id}/delete', [ManufacturerController::class, 'delete'])->name('manufacturer.delete');
+    Route::post('/{id}/update', [ManufacturerController::class, 'update'])->name('manufacturer.update');
+
+    Route::get('/create', [ManufacturerController::class, 'create'])->name('manufacturer.create');
+    Route::post('/store', [ManufacturerController::class, 'store'])->name('manufacturer.store');
 });

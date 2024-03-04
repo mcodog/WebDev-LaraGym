@@ -16,6 +16,6 @@ class Equipment extends Model
         if($this->img_path){
             return url('storage/'. $this->img_path);
         }
-        return URL::asset('equipments/default-equipments.png');
+        return URL::asset('storage/equipments/default-equipments.png');
     }
 }

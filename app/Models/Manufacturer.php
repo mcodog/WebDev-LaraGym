@@ -16,6 +16,6 @@ class Manufacturer extends Model
         if($this->img_path){
             return url('storage/'. $this->img_path);
         }
-        return URL::asset('manufacturer/default-manufacturer.png');
+        return URL::asset('storage/manufacturer/default-manufacturer.png');
     }
 }

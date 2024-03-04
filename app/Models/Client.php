@@ -16,6 +16,6 @@ class Client extends Model
         if($this->img_path){
             return url('storage/'. $this->img_path);
         }
-        return URL::asset('client/default-client.png');
+        return URL::asset('storage/client/default-client.png');
     }
 }

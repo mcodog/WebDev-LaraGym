@@ -16,6 +16,6 @@ class Employee extends Model
         if($this->img_path){
             return url('storage/'. $this->img_path);
         }
-        return URL::asset('employee/default-employee.png');
+        return URL::asset('storage/employee/default-employee.png');
     }
 }
