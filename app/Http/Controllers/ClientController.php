@@ -60,7 +60,7 @@ class ClientController extends Controller
         return Redirect::to('client');
     }
 
-    public function update(StoreProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
         $first_name = $request->first_name;
         $last_name = $request->last_name;
@@ -89,7 +89,7 @@ class ClientController extends Controller
                 $client->img_path = request()->file('image')->store('client', 'public');
             }
         }
-
+        // dd($client);
         $client->save();
         return Redirect::to('client');
     }
