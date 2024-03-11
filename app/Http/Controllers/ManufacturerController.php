@@ -8,10 +8,12 @@ use Illuminate\Http\Request;
 use View;
 use Redirect;
 
+use App\Http\Requests\StoreManufacturerRequest;
+
 class ManufacturerController extends Controller
 {
     public function index() {
-        $manufacturers = Manufacturer::all();
+        $manufacturers = Manufacturer::paginate(10);
         return View::make('admin.manufacturers.index', compact('manufacturers'));
     }
 
@@ -19,7 +21,7 @@ class ManufacturerController extends Controller
         return View::make('admin.manufacturers.create');
     }
     
-    public function store(Request $request) {
+    public function store(StoreManufacturerRequest $request) {
         $description = $request->description;
         $address = $request->address;
         $contact = $request->contact;

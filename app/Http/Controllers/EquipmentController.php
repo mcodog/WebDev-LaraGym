@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Redirect as FacadesRedirect;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Requests\StoreEquipmentRequest;
+
 class EquipmentController extends Controller
 {
     public function index() {
@@ -28,14 +30,16 @@ class EquipmentController extends Controller
         return View::make('admin.equipments.create', compact('manufacturers'));
     }
     
-    public function store(Request $request) {
-        $description = $request->description;
-        $category = $request->category;
-        $weight = $request->weight;
-        $dimension = $request->dimension;
-        $cost = $request->cost;
+    public function store(StoreEquipmentRequest $request) {
+        $data = $request->validated();
+
+        $description = $data['description'];
+        $category = $data['category'];
+        $weight = $data['weight'];
+        $dimension = $data['dimension'];
+        $cost = $data['cost'];
+        $manufacturer = $data['manufacturer'];
         $notes = $request->notes;
-        $manufacturer = $request->manufacturer;
 
         $equipment = New Equipment();
 
@@ -63,14 +67,16 @@ class EquipmentController extends Controller
         return View::make('admin.equipments.edit', compact('equipment', 'manufacturer', 'manufacturers'));
     }
 
-    public function update(Request $request, $id) {
-        $description = $request->description;
-        $category = $request->category;
-        $weight = $request->weight;
-        $dimension = $request->dimension;
-        $cost = $request->cost;
+    public function update(StoreEquipmentRequest $request, $id) {
+        $data = $request->validated();
+
+        $description = $data['description'];
+        $category = $data['category'];
+        $weight = $data['weight'];
+        $dimension = $data['dimension'];
+        $cost = $data['cost'];
+        $manufacturer = $data['manufacturer'];
         $notes = $request->notes;
-        $manufacturer = $request->manufacturer;
 
         $equipment = Equipment::find($id);
 

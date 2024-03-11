@@ -8,6 +8,8 @@ use View;
 use Redirect;
 use Illuminate\Support\Facades\Storage;
 
+use App\Http\Requests\StoreEmployeeRequest;
+
 class EmployeeController extends Controller
 {
     public function index() {
@@ -19,13 +21,22 @@ class EmployeeController extends Controller
         return View::make('admin.employees.create');
     }
 
-    public function store(Request $request) {
-        $first_name = $request->first_name;
-        $last_name = $request->last_name;
-        $age = $request->age;
-        $gender = $request->gender;
-        $type = $request->type;
-        $status = $request->status;
+    public function store(StoreEmployeeRequest $request) {
+        $data = $request->validated();
+
+        $first_name = $data['first_name'];
+        $last_name = $data['last_name'];
+        $age = $data['age'];
+        $gender = $data['gender'];
+        $type = $data['type'];
+        $status = $data['status'];
+
+        // $first_name = $request->first_name;
+        // $last_name = $request->last_name;
+        // $age = $request->age;
+        // $gender = $request->gender;
+        // $type = $request->type;
+        // $status = $request->status;
 
         $employee = new Employee();
 
@@ -58,14 +69,16 @@ class EmployeeController extends Controller
         return Redirect::to('employee');
     }
 
-    public function update(Request $request, $id)
+    public function update(StoreEmployeeRequest $request, $id)
     {
-        $first_name = $request->first_name;
-        $last_name = $request->last_name;
-        $age = $request->age;
-        $gender = $request->gender;
-        $type = $request->type;
-        $status = $request->status;
+        $data = $request->validated();
+
+        $first_name = $data['first_name'];
+        $last_name = $data['last_name'];
+        $age = $data['age'];
+        $gender = $data['gender'];
+        $type = $data['type'];
+        $status = $data['status'];
 
         $employee = Employee::find($id);
 

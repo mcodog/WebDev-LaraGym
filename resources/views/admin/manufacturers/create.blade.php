@@ -2,6 +2,15 @@
 
 @section('content')
 <h1>Create Manufacturer</h1>
+@if ($errors->any()) 
+    <div class="alert alert-danger">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form enctype="multipart/form-data" action="{{ url('manufacturer/store') }}" method="post" >
     @csrf
     <label for="weight">Description</label>
