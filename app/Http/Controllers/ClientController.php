@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 
+use App\DataTables\ClientDataTable;
+
 class ClientController extends Controller
 {
-    public function index() {
+    public function index(ClientDataTable $dataTable) {
         $client = Client::all();
-        return View::make('admin.clients.index', compact('client'));
+        // return View::make('admin.clients.index', compact('client'));
+        return $dataTable->render('admin.clients.index');
     }
 
     public function create() {

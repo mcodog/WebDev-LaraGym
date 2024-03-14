@@ -7,14 +7,16 @@ use App\Models\Manufacturer;
 use Illuminate\Http\Request;
 use View;
 use Redirect;
+use App\DataTables\ManufacturerDataTable;
 
 use App\Http\Requests\StoreManufacturerRequest;
 
 class ManufacturerController extends Controller
 {
-    public function index() {
-        $manufacturers = Manufacturer::paginate(10);
-        return View::make('admin.manufacturers.index', compact('manufacturers'));
+    public function index(ManufacturerDataTable $dataTable) {
+        // $manufacturers = Manufacturer::paginate(10);
+        // return View::make('admin.manufacturers.index', compact('manufacturers'));
+        return $dataTable->render('admin.manufacturers.index');
     }
 
     public function create() {
