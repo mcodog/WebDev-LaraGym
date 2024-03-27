@@ -10,16 +10,23 @@ use Redirect;
 use App\DataTables\ManufacturerDataTable;
 
 use App\Http\Requests\StoreManufacturerRequest;
+use Auth;
 
 class ManufacturerController extends Controller
 {
     public function index(ManufacturerDataTable $dataTable) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         // $manufacturers = Manufacturer::paginate(10);
         // return View::make('admin.manufacturers.index', compact('manufacturers'));
         return $dataTable->render('admin.manufacturers.index');
     }
 
     public function create() {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         return View::make('admin.manufacturers.create');
     }
     
@@ -45,11 +52,17 @@ class ManufacturerController extends Controller
     }
 
     public function edit($id) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $manufacturer = Manufacturer::find($id);
         return View::make('admin.manufacturers.edit', compact('manufacturer'));
     }
 
     public function update(Request $request, $id) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $description = $request->description;
         $address = $request->address;
         $contact = $request->contact;
@@ -78,6 +91,9 @@ class ManufacturerController extends Controller
     }
 
     public function delete($id) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         Manufacturer::destroy($id);
         return Redirect::to('manufacturer');
     }

@@ -12,6 +12,7 @@ use App\Models\Manufacturer;
 use Illuminate\Support\Facades\Redirect as FacadesRedirect;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\DB;
+use Auth;
 
 use App\Http\Requests\StoreEquipmentRequest;
 use App\DataTables\EquipmentDataTable;
@@ -19,6 +20,9 @@ use App\DataTables\EquipmentDataTable;
 class EquipmentController extends Controller
 {
     public function index(EquipmentDataTable $dataTable) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         // $equipments = DB::table('equipments')
         // ->join('manufacturers', 'manufacturers.id', '=', 'equipments.manufacturer_id')
         // ->select('manufacturers.description AS manufacturer', 'equipments.description AS equipment', 'equipments.weight', 'equipments.dimension', 'equipments.cost', 'equipments.notes', 'equipments.category', 'equipments.manufacturer_id', 'equipments.img_path', 'equipments.id')
@@ -28,11 +32,17 @@ class EquipmentController extends Controller
     }
 
     public function create() {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $manufacturers = Manufacturer::all();
         return View::make('admin.equipments.create', compact('manufacturers'));
     }
     
     public function store(StoreEquipmentRequest $request) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $data = $request->validated();
 
         $description = $data['description'];
@@ -63,6 +73,9 @@ class EquipmentController extends Controller
     }
 
     public function edit($id) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $equipment = Equipment::find($id);
         $manufacturer = Manufacturer::where('id', $equipment->manufacturer_id)->first();
         $manufacturers = Manufacturer::all();
@@ -70,6 +83,9 @@ class EquipmentController extends Controller
     }
 
     public function update(StoreEquipmentRequest $request, $id) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $data = $request->validated();
 
         $description = $data['description'];
@@ -108,6 +124,9 @@ class EquipmentController extends Controller
     }
 
     public function delete($id) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         Equipment::destroy($id);
         return Redirect::to('equipment');
     }

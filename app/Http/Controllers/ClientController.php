@@ -11,20 +11,30 @@ use App\Models\Client;
 use App\Http\Requests\StoreClientRequest;
 
 use App\DataTables\ClientDataTable;
+use Auth;
 
 class ClientController extends Controller
 {
     public function index(ClientDataTable $dataTable) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $client = Client::all();
         // return View::make('admin.clients.index', compact('client'));
         return $dataTable->render('admin.clients.index');
     }
 
     public function create() {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         return View::make('admin.clients.create');
     }
 
     public function store(StoreClientRequest $request) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $data = $request->validated();
 
         $first_name = $data['first_name'];
@@ -57,18 +67,27 @@ class ClientController extends Controller
 
     public function edit($id)
     {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $client = Client::find($id);
         return View::make('admin.clients.edit', compact('client'));
     }
 
     public function delete($id)
     {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         Client::destroy($id);
         return Redirect::to('client');
     }
 
     public function update(Request $request, $id)
     {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $first_name = $request->first_name;
         $last_name = $request->last_name;
         $age = $request->age;

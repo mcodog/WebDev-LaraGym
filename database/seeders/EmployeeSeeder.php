@@ -20,13 +20,13 @@ class EmployeeSeeder extends Seeder
 
         
         $faker = Faker::create();
-        foreach(range(1, 20) as $index) {
+        foreach(range(1, 100) as $index) {
             DB::table('employee')->insert ([
                 'first_name' => $faker->randomElement($firstNames),
                 'last_name' => $faker->randomElement($lastNames),
                 'age' => $faker->numberBetween(11, 99),
                 'gender' => $faker->randomElement(['Male', 'Female']),
-                'job_type' => $faker->randomElement(['Coach', 'Cleaner', 'Clerk', 'Trainer', 'Part-Timer']),
+                'job_type' => $faker->randomElement(["Fitness Trainer/Personal Trainer", "Group Fitness Instructor", "Gym Manager/Club Manager", "Front Desk Receptionist", "Membership Sales Representative", "Fitness Consultant", "Maintenance Technician", "Group Fitness Coordinator", "Personal Training Manager", "Childcare Attendant", "Nutritionist/Dietitian", "Operations Manager", "Marketing Coordinator", "Social Media Coordinator", "Cleaning Staff"]),
                 'status' =>$faker->numberBetween(0, 1000),
             ]);
         }

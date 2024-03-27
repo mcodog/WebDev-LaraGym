@@ -25,10 +25,14 @@ class EmployeeController extends Controller
     }
 
     public function create() {
+        
         return View::make('admin.employees.create');
     }
 
     public function store(StoreEmployeeRequest $request) {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $data = $request->validated();
 
         $first_name = $data['first_name'];
@@ -66,18 +70,27 @@ class EmployeeController extends Controller
 
     public function edit($id)
     {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $employee = Employee::find($id);
         return View::make('admin.employees.edit', compact('employee'));
     }
 
     public function delete($id)
     {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         Employee::destroy($id);
         return Redirect::to('employee');
     }
 
     public function update(StoreEmployeeRequest $request, $id)
     {
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
         $data = $request->validated();
 
         $first_name = $data['first_name'];
