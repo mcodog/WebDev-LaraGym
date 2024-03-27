@@ -47,7 +47,7 @@ php artisan db:seed
         <th>Fully Completed</th>
     </tr>
     <tr>
-        <th>✖</th>
+        <th>¼</th>
         <th>MP5</th>
         <th>Registration Done</th>
     </tr>
@@ -72,7 +72,7 @@ php artisan db:seed
         <th>Need: View Page for Transactions</th>
     </tr>
     <tr>
-        <th>✔</th>
+        <th>¾</th>
         <th>UT 1</th>
         <th>Need: Database Diagram</th>
     </tr>
