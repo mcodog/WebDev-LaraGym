@@ -19,10 +19,14 @@ php artisan serve
 php artisan db:seed
 
 <h2>Requirements Checklist</h2>
+<html>
+    <head>
 
+    </head>
+    <body>
 <table>
     <tr>
-    <th>Status</th>
+    <th style="width:100%;">Status</th>
     <th>Description</th>
     </tr>
     <tr>
@@ -79,6 +83,9 @@ php artisan db:seed
     </tr>
 
 </table>
+
+</body>
+</html>
 
 Web Development Project Requirements
 machine problems 20pts
