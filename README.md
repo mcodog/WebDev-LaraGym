@@ -59,14 +59,17 @@ php artisan db:seed
     <tr>
         <th>✖</th>
         <th>Quiz 2</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>Quiz 3</th>
+        <th>Not Started</th>
     </tr>
     <tr>
-        <th>✖</th>
+        <th>✔</th>
         <th>Quiz 4</th>
+        <th>Need: View Page for Transactions</th>
     </tr>
     <tr>
         <th>✔</th>
@@ -76,14 +79,17 @@ php artisan db:seed
     <tr>
         <th>✖</th>
         <th>UT 2</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>TT Lec</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>TT Lab</th>
+        <th>Not Started</th>
     </tr>
 
 </table>
