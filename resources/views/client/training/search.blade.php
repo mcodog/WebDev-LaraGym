@@ -1,5 +1,3 @@
-
-
 @extends('admin.shared.layouts')
 
 @section('content')
@@ -22,7 +20,6 @@
                             </a>
                     @endforeach
                     <div class="d-flex justify-content-center">
-                        {{ $services->links() }}
                 </div>
                 </div>
             </div>

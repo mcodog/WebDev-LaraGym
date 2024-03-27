@@ -11,6 +11,8 @@ use App\Http\Controllers\ManufacturerController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\LoginController;
 
+use Illuminate\Http\Request;
+
 use App\Models\Service;
 /*
 |--------------------------------------------------------------------------
@@ -70,16 +72,15 @@ Route::prefix('manufacturer')->group(function () {
 
 Route::get('/coaching', [TransactionController::class, 'indexCoaching'])->name('coaching.index');
 Route::get('/program/{id}/details', [TransactionController::class, 'showDetails'])->name('coaching.details');
+Route::post('/search', [TransactionController::class, 'searchResult'])->name('search.result');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::get('search', function() {
-    $query = 'Rugby'; // <-- Change the query for testing.
+// Route::post('search', function(Request $request) {
+//     $service = App\Models\Service::search($request->queryyy)->get();
 
-    $service = App\Models\Service::search($query)->get();
-
-    return $service;
-});
+//     return $service;
+// });

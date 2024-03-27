@@ -18,4 +18,9 @@ class TransactionController extends Controller
         $service = Service::find($id);
         return View::make('client.training.details', compact('service'));
     }
+
+    public function searchResult(Request $request) {
+        $services = Service::search($request->queryyy)->get();
+        return View::make('client.training.search', ['services' => $services]);
+    }
 }
