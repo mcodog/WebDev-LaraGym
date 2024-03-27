@@ -27,7 +27,6 @@ class StoreClientRequest extends FormRequest
             'age' => 'required|numeric',
             'gender' => 'required',
             'type' => 'required',
-            'status' => 'required',
             'expiration_date' => 'required',
 
         ];
@@ -41,7 +40,6 @@ class StoreClientRequest extends FormRequest
             'age.required' => 'Age is required',
             'gender.required' => 'Gender is required',
             'type.required' => 'Type is required',
-            'status.required' => 'Status is required',
             'expiration_date.required' => 'Expiration Date is required',
         ];
     }

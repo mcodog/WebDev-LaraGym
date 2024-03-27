@@ -152,11 +152,14 @@
                                 </li>
                             @endif
                         @else
+
+                        @if (Auth::user()->role == "user")
                         <form class="d-flex" method="POST" action="/search">
                             @csrf
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="queryyy" id="query">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
+                        @endif
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
