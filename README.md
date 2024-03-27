@@ -58,9 +58,9 @@ php artisan db:seed
         <th>Fully Completed</th>
     </tr>
     <tr>
-        <th>✖</th>
+        <th>✔</th>
         <th>Quiz 2</th>
-        <th>Not Started</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✖</th>
