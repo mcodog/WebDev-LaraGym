@@ -1,5 +1,6 @@
 # WebDev-Laragym
- 
+
+<h2>Start Up</h2>
 Run the following commands
 
 composer install
