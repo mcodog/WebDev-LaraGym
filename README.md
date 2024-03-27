@@ -73,12 +73,12 @@ php artisan db:seed
         <th>Need: View Page for Transactions</th>
     </tr>
     <tr>
-        <th>¾</th>
+        <th>✔</th>
         <th>UT 1</th>
         <th>Need: Database Diagram</th>
     </tr>
     <tr>
-        <th>✖</th>
+        <th>✔</th>
         <th>UT 2</th>
         <th>Not Started</th>
     </tr>
