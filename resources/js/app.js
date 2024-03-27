@@ -7,6 +7,11 @@
 import './bootstrap';
 import { createApp } from 'vue';
 import 'laravel-datatables-vite';
+import VueInstantSearch from 'vue-instantsearch/vue3/es';
+
+Vue.use(VueInstantSearch);
+Vue.component('my-search', require('./components/MySearch.vue').default)
+
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin

@@ -11,6 +11,7 @@
                 </div>
                 <div class="card-body">
                 {{ $dataTable->table() }}
+                <a class="btn btn-success" href="client/create">Create New</a>
                 </div>
             </div>
         </div>

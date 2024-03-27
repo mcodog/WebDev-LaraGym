@@ -8,7 +8,10 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ManufacturerController;
 
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\Auth\LoginController;
+
+use App\Models\Service;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,7 +68,18 @@ Route::prefix('manufacturer')->group(function () {
     Route::post('/store', [ManufacturerController::class, 'store'])->name('manufacturer.store')->middleware('auth');
 });
 
+Route::get('/coaching', [TransactionController::class, 'indexCoaching'])->name('coaching.index');
+Route::get('/program/{id}/details', [TransactionController::class, 'showDetails'])->name('coaching.details');
+
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+
+Route::get('search', function() {
+    $query = 'Rugby'; // <-- Change the query for testing.
+
+    $service = App\Models\Service::search($query)->get();
+
+    return $service;
+});

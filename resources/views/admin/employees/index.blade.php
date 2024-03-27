@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">     
                     {{ $dataTable->table() }}
-                    <a href="employee/create">Create New</a>
+                    <a class="btn btn-success" href="employee/create">Create New</a>
                 </div>
             </div>
         </div>

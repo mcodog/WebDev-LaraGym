@@ -32,10 +32,58 @@
 .dropdown:hover .dropdown-content {
   display: block;
 }
-</style>
 
+.programs {
+    /* border:1px solid red; */
+    width:100%;
+    height:fit-content;
+
+    display:flex;
+    gap:10px;
+    padding: 10px;
+
+    flex-direction: column;
+    
+}
+
+.programs a{
+    text-decoration: none;
+}
+
+.program-item {
+    height: 200px;
+    width: 100%;
+    /* border:1px solid red; */
+
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column-reverse;
+
+    padding:10px;
+    padding-left:20px;
+    color:white;
+    
+    /* border: 1px solid black; */
+
+    background-color:rgb(13, 13, 13);
+}
+
+.program-item div{
+    width:100%;
+    height:30px;
+    text-decoration:none;
+    /* border:1px solid blue; */
+}
+
+.program-item .program-description{
+    color:gray;
+}
+
+
+</style>
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 </head>
 <body>
     <div id="app">
@@ -77,7 +125,15 @@
                             </li>
                         </ul>
                     @elseif (Auth::user()->role == "user")
-                    
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/employee">Train with Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/coaching">Coaching</a>
+                            </li>
+                        </ul>
+                        
                     @endif
 
                     <!-- Right Side Of Navbar -->
@@ -96,6 +152,10 @@
                                 </li>
                             @endif
                         @else
+                        <form class="d-flex" >
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
