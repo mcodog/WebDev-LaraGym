@@ -19,13 +19,73 @@ php artisan serve
 php artisan db:seed
 
 <h2>Requirements Checklist</h2>
+
+<table>
+    <tr>
+    <th>Status</th>
+    <th>Description</th>
+    </tr>
+    <tr>
+        <th>✔</th>
+        <th>MP1</th>
+    </tr>
+    <tr>
+        <th>✔</th>
+        <th>MP2</th>
+    </tr>
+    <tr>
+        <th>✔</th>
+        <th>MP3</th>
+    </tr>
+    <tr>
+        <th>✔</th>
+        <th>MP4</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>MP5</th>
+    </tr>
+    <tr>
+        <th>✔</th>
+        <th>Quiz 1</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>Quiz 2</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>Quiz 3</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>Quiz 4</th>
+    </tr>
+    <tr>
+        <th>✔</th>
+        <th>UT 1</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>UT 2</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>TT Lec</th>
+    </tr>
+    <tr>
+        <th>✖</th>
+        <th>TT Lab</th>
+    </tr>
+
+</table>
+
 Web Development Project Requirements
-<p style="color:blue;">I am blue</p>
 machine problems 20pts
-<p style="color:green;">mp1 20pts 
+ mp1 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
-</p>
+
 mp2 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
