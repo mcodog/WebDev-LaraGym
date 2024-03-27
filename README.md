@@ -20,6 +20,7 @@ php artisan db:seed
 
 <h2>Requirements Checklist</h2>
 Web Development Project Requirements
+<p style="color:blue;">I am blue</p>
 machine problems 20pts
 <p style="color:green;">mp1 20pts 
 CRUD functions single image upload 15pts
