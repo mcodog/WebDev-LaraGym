@@ -20,10 +20,6 @@ php artisan db:seed
 
 <h2>Requirements Checklist</h2>
 <html>
-    <head>
-
-    </head>
-    <body>
 <table>
     <tr>
     <th style="width:100%;">Status</th>
