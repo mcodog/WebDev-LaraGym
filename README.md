@@ -85,6 +85,7 @@ php artisan db:seed
 
 Web Development Project Requirements
 machine problems 20pts
+
  mp1 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
@@ -92,12 +93,15 @@ CRUD functions single image upload 15pts
 mp2 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
+ 
 mp3 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
+ 
 mp4 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
+ 
 mp5 20pts 
 User/Customer registration. user/customer profile should only be updated by the authenticated user. upload an image of the user. admininistrator can deactivate the user. 15 pts.
 
