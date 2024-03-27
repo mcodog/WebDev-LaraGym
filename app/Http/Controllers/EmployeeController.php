@@ -8,6 +8,7 @@ use View;
 use Redirect;
 use Illuminate\Support\Facades\Storage;
 use App\DataTables\EmployeeDataTable;
+use Auth;
 
 use App\Http\Requests\StoreEmployeeRequest;
 
@@ -16,6 +17,10 @@ class EmployeeController extends Controller
     public function index(EmployeeDataTable $dataTable) {
         // $employee = Employee::all();
         // return View::make('admin.employees.index', compact('employee'));
+        if (!(Auth::user()->role == "admin")) {
+            $this->authorize('update', $dataTable);
+        }
+        
         return $dataTable->render('admin.employees.index');
     }
 
