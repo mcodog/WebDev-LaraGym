@@ -4,6 +4,7 @@
 Run the following commands
 
 composer install
+
 cp .env.example .env
 
 php artisan key:generate
@@ -24,58 +25,72 @@ php artisan db:seed
     <tr>
     <th style="width:100%;">Status</th>
     <th>Description</th>
+    <th>Note</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP1</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP2</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP3</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP4</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
-        <th>✖</th>
+        <th>¼</th>
         <th>MP5</th>
+        <th>Registration Done</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>Quiz 1</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>Quiz 2</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>Quiz 3</th>
-    </tr>
-    <tr>
-        <th>✖</th>
-        <th>Quiz 4</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✔</th>
+        <th>Quiz 4</th>
+        <th>Need: View Page for Transactions</th>
+    </tr>
+    <tr>
+        <th>¾</th>
         <th>UT 1</th>
+        <th>Need: Database Diagram</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>UT 2</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>TT Lec</th>
+        <th>Not Started</th>
     </tr>
     <tr>
         <th>✖</th>
         <th>TT Lab</th>
+        <th>Not Started</th>
     </tr>
 
 </table>
@@ -85,6 +100,7 @@ php artisan db:seed
 
 Web Development Project Requirements
 machine problems 20pts
+
  mp1 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
@@ -92,12 +108,15 @@ CRUD functions single image upload 15pts
 mp2 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
+ 
 mp3 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
+ 
 mp4 20pts 
 CRUD functions single image upload 15pts
 	CRUD functions using datatables multiple image uploads 20pts
+ 
 mp5 20pts 
 User/Customer registration. user/customer profile should only be updated by the authenticated user. upload an image of the user. admininistrator can deactivate the user. 15 pts.
 
