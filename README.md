@@ -24,6 +24,7 @@ php artisan db:seed
     <tr>
     <th style="width:100%;">Status</th>
     <th>Description</th>
+    <th>Note</th>
     </tr>
     <tr>
         <th>✔</th>
@@ -44,6 +45,7 @@ php artisan db:seed
     <tr>
         <th>✖</th>
         <th>MP5</th>
+        <th>Registration Done</th>
     </tr>
     <tr>
         <th>✔</th>
