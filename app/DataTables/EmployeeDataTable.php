@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Manufacturer;
+use App\Models\Employee;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,7 +12,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ManufacturerDataTable extends DataTable
+class EmployeeDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -22,8 +22,8 @@ class ManufacturerDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function ($manufacturer) {
-                return "<span><a href='". url('manufacturer/'. $manufacturer->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('manufacturer/'. $manufacturer->id.'/delete') ."'>Delete</a></span>";
+            ->addColumn('action', function ($employee) {
+                return "<span><a href='". url('employee/'. $employee->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('employee/'. $employee->id.'/delete') ."'>Delete</a></span>";
             })
             ->setRowId('id');
     }
@@ -31,7 +31,7 @@ class ManufacturerDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(Manufacturer $model): QueryBuilder
+    public function query(Employee $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -39,16 +39,13 @@ class ManufacturerDataTable extends DataTable
     /**
      * Optional method if you want to use the html builder.
      */
-    protected array $actions = ['print', 'excel', 'myCustomAction'];
-
     public function html(): HtmlBuilder
     {
-        
         return $this->builder()
-                    ->setTableId('manufacturers-table')
+                    ->setTableId('employee-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    //->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
@@ -59,13 +56,6 @@ class ManufacturerDataTable extends DataTable
                         Button::make('reset'),
                         Button::make('reload')
                     ]);
-    }
-
-    public function myCustomAction()
-    {
-        name: 'add';
-        className: 'buttons-add btn-success';
-        text: '<i class="fa fa-plus"></i> New';
     }
 
     /**
@@ -80,9 +70,12 @@ class ManufacturerDataTable extends DataTable
                   ->width(60)
                   ->addClass('text-center'),
             Column::make('id'),
-            Column::make('description'),
-            Column::make('address'),
-            Column::make('contact'),
+            Column::make('first_name'),
+            Column::make('last_name'),
+            Column::make('age'),
+            Column::make('gender'),
+            Column::make('job_type'),
+            Column::make('status'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];
@@ -93,6 +86,6 @@ class ManufacturerDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Manufacturer_' . date('YmdHis');
+        return 'Employee_' . date('YmdHis');
     }
 }

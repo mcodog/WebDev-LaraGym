@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 use View;
 use Redirect;
 use Illuminate\Support\Facades\Storage;
+use App\DataTables\EmployeeDataTable;
 
 use App\Http\Requests\StoreEmployeeRequest;
 
 class EmployeeController extends Controller
 {
-    public function index() {
-        $employee = Employee::all();
-        return View::make('admin.employees.index', compact('employee'));
+    public function index(EmployeeDataTable $dataTable) {
+        // $employee = Employee::all();
+        // return View::make('admin.employees.index', compact('employee'));
+        return $dataTable->render('admin.employees.index');
     }
 
     public function create() {

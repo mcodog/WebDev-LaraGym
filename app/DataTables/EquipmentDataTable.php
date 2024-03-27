@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Manufacturer;
+use App\Models\Equipment;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -11,8 +11,9 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Illuminate\Support\Facades\URL;
 
-class ManufacturerDataTable extends DataTable
+class EquipmentDataTable extends DataTable
 {
     /**
      * Build the DataTable class.
@@ -22,8 +23,8 @@ class ManufacturerDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', function ($manufacturer) {
-                return "<span><a href='". url('manufacturer/'. $manufacturer->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('manufacturer/'. $manufacturer->id.'/delete') ."'>Delete</a></span>";
+            ->addColumn('action', function ($equipment) {
+                return "<span><a href='". url('equipment/'. $equipment->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('equipment/'. $equipment->id.'/delete') ."'>Delete</a></span>";
             })
             ->setRowId('id');
     }
@@ -31,7 +32,7 @@ class ManufacturerDataTable extends DataTable
     /**
      * Get the query source of dataTable.
      */
-    public function query(Manufacturer $model): QueryBuilder
+    public function query(Equipment $model): QueryBuilder
     {
         return $model->newQuery();
     }
@@ -39,16 +40,13 @@ class ManufacturerDataTable extends DataTable
     /**
      * Optional method if you want to use the html builder.
      */
-    protected array $actions = ['print', 'excel', 'myCustomAction'];
-
     public function html(): HtmlBuilder
     {
-        
         return $this->builder()
-                    ->setTableId('manufacturers-table')
+                    ->setTableId('equipment-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
-                    ->dom('Bfrtip')
+                    //->dom('Bfrtip')
                     ->orderBy(1)
                     ->selectStyleSingle()
                     ->buttons([
@@ -59,13 +57,6 @@ class ManufacturerDataTable extends DataTable
                         Button::make('reset'),
                         Button::make('reload')
                     ]);
-    }
-
-    public function myCustomAction()
-    {
-        name: 'add';
-        className: 'buttons-add btn-success';
-        text: '<i class="fa fa-plus"></i> New';
     }
 
     /**
@@ -81,8 +72,11 @@ class ManufacturerDataTable extends DataTable
                   ->addClass('text-center'),
             Column::make('id'),
             Column::make('description'),
-            Column::make('address'),
-            Column::make('contact'),
+            Column::make('category'),
+            Column::make('dimension'),
+            Column::make('weight'),
+            Column::make('cost'),
+            Column::make('notes'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];
@@ -93,6 +87,6 @@ class ManufacturerDataTable extends DataTable
      */
     protected function filename(): string
     {
-        return 'Manufacturer_' . date('YmdHis');
+        return 'Equipment_' . date('YmdHis');
     }
 }

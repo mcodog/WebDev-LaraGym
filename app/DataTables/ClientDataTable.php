@@ -22,7 +22,9 @@ class ClientDataTable extends DataTable
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
-            ->addColumn('action', 'client.action')
+            ->addColumn('action', function ($client) {
+                return "<span><a href='". url('client/'. $client->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('client/'. $client->id.'/delete') ."'>Delete</a></span>";
+            })
             ->setRowId('id');
     }
 

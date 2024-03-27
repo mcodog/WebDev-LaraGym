@@ -14,15 +14,17 @@ use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Requests\StoreEquipmentRequest;
+use App\DataTables\EquipmentDataTable;
 
 class EquipmentController extends Controller
 {
-    public function index() {
-        $equipments = DB::table('equipments')
-        ->join('manufacturers', 'manufacturers.id', '=', 'equipments.manufacturer_id')
-        ->select('manufacturers.description AS manufacturer', 'equipments.description AS equipment', 'equipments.weight', 'equipments.dimension', 'equipments.cost', 'equipments.notes', 'equipments.category', 'equipments.manufacturer_id', 'equipments.img_path', 'equipments.id')
-        ->get();
-        return View::make('admin.equipments.index', compact('equipments'));
+    public function index(EquipmentDataTable $dataTable) {
+        // $equipments = DB::table('equipments')
+        // ->join('manufacturers', 'manufacturers.id', '=', 'equipments.manufacturer_id')
+        // ->select('manufacturers.description AS manufacturer', 'equipments.description AS equipment', 'equipments.weight', 'equipments.dimension', 'equipments.cost', 'equipments.notes', 'equipments.category', 'equipments.manufacturer_id', 'equipments.img_path', 'equipments.id')
+        // ->get();
+        // return View::make('admin.equipments.index', compact('equipments'));
+        return $dataTable->render('admin.equipments.index');
     }
 
     public function create() {
