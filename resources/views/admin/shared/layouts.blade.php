@@ -13,6 +13,26 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -35,20 +55,29 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     @if (Auth::user()->role == "admin")
+                    
                         <ul class="navbar-nav me-auto">
+                            <div class="dropdown btn dropdown-toggle">
+                                <span>CRUD Manager</span>
+                                <div class="dropdown-content dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="/employee">Employees</a>
+                                    <a class="dropdown-item" href="/client">Clients</a>
+                                    <a class="dropdown-item" href="/equipment">Equipments</a>
+                                    <a class="dropdown-item" href="/manufacturer">Manufacturer</a>
+                                </div>
+                            </div>
                             <li class="nav-item">
-                                <a class="nav-link" href="/employee">Employees</a>
+                                <a class="nav-link" href="/employee">Analytics</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/client">Clients</a>
+                                <a class="nav-link" href="/client">Accounts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/equipment">Equipments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/manufacturer">Manufacturer</a>
+                                <a class="nav-link" href="/client">Training Services</a>
                             </li>
                         </ul>
+                    @elseif (Auth::user()->role == "user")
+                    
                     @endif
 
                     <!-- Right Side Of Navbar -->
