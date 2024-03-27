@@ -29,18 +29,22 @@ php artisan db:seed
     <tr>
         <th>✔</th>
         <th>MP1</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP2</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP3</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✔</th>
         <th>MP4</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✖</th>
@@ -50,6 +54,7 @@ php artisan db:seed
     <tr>
         <th>✔</th>
         <th>Quiz 1</th>
+        <th>Fully Completed</th>
     </tr>
     <tr>
         <th>✖</th>
@@ -66,6 +71,7 @@ php artisan db:seed
     <tr>
         <th>✔</th>
         <th>UT 1</th>
+        <th>Need: Database Diagram</th>
     </tr>
     <tr>
         <th>✖</th>
