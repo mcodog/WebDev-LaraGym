@@ -7,7 +7,6 @@ use View;
 use DB;
 use Auth;
 use Redirect;
-use Auth;
 use App\Models\Service;
 use App\Models\User;
 
@@ -31,8 +30,10 @@ class TransactionController extends Controller
     }
 
     public function trainwithus() {
+        // print("dsa");
         return View::make('client.membership.index');
     }
+
     public function store(Request $request) {
         dump(Auth::user()->name);
         dump(Auth::user()->email);
@@ -69,7 +70,6 @@ class TransactionController extends Controller
 
         // return Redirect::to('client');
     }
-}
 
     public function getProfile() {
         $users = DB::table('users')
@@ -118,4 +118,5 @@ class TransactionController extends Controller
         // $manufacturer->address = $address;
         // $manufacturer->contact = $contact;
     }
+
 }
