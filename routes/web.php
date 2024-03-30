@@ -73,6 +73,8 @@ Route::prefix('manufacturer')->group(function () {
 Route::get('/coaching', [TransactionController::class, 'indexCoaching'])->name('coaching.index');
 Route::get('/program/{id}/details', [TransactionController::class, 'showDetails'])->name('coaching.details');
 Route::post('/search', [TransactionController::class, 'searchResult'])->name('search.result');
+Route::get('/profile', [TransactionController::class, 'getProfile'])->name('get.profile');
+Route::post('{id}/save-profile', [TransactionController::class, 'saveProfile'])->name('save.profile');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
