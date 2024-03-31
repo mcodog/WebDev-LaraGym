@@ -88,6 +88,7 @@ class EmployeeController extends Controller
 
     public function update(StoreEmployeeRequest $request, $id)
     {
+        print('example');
         if (!(Auth::user()->role == "admin")) {
             $this->authorize('update', $dataTable);
         }

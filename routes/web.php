@@ -75,6 +75,8 @@ Route::get('/program/{id}/details', [TransactionController::class, 'showDetails'
 Route::post('/search', [TransactionController::class, 'searchResult'])->name('search.result');
 Route::get('/trainwithus', [TransactionController::class, 'trainwithus'])->name('train.withus');
 Route::post('/Store', [TransactionController::class, 'store'])->name('train.store');
+Route::get('/profile', [TransactionController::class, 'getProfile'])->name('get.profile');
+Route::post('{id}/save-profile', [TransactionController::class, 'saveProfile'])->name('save.profile');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
