@@ -25,13 +25,52 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header">
                     <h1>Analytics</h1>
                 </div>
                 <div class="card-body">
                 {{ $dataTable->table() }}
+                </div>
+            </div>
+
+            <br>
+
+            <div class="card">
+                <div class="card text-center">
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+                    <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" role="tab" data-toggle="tab">Reviews - Standard Membership</a>
+                    </li>
+                    <li role="presentation"><a href="#one" role="tab" data-toggle="tab">Reviews - Premium Membership</a>
+                    </li>
+                    <li role="presentation"><a href="#contact" role="tab" data-toggle="tab">Reviews - VIP Membership</a>
+                    </li>
+                    </ul>
+
+                    <div class="container-fluid">
+                    <div class="tab-content">
+                        <div id="home" role="tabpanel" class="tab-pane fade in active">
+                        <div class="alert alert-info">Reviews - Standard Membership</div>
+                        
+                        </div>
+                        <div id="one" role="tabpanel" class="tab-pane fade">
+                        <div class="alert alert-info">Reviews - Premium Membership</div>
+                        </div>
+                        <div id="two" role="tabpanel" class="tab-pane fade">
+                        <div class="alert alert-info">Two</div>
+                        </div>
+                        <div id="three" role="tabpanel" class="tab-pane fade">
+                        <div class="alert alert-info">Three</div>
+                        </div>
+                        <div id="contact" role="tabpanel" class="tab-pane fade">
+                        <div class="alert alert-info">Reviews - VIP Membership</div>
+                        </div>
+                    </div>
+                    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
                 </div>
             </div>
         </div>
