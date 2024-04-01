@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\DataTables\TransactionDataTable;
 use Auth;
 use App\Models\User_Membership;
+use App\Models\Review;
 use View;
 use Redirect;
 
@@ -15,8 +16,10 @@ class AdminController extends Controller
         if (!(Auth::user()->role == "admin")) {
             $this->authorize('update', $dataTable);
         }
+        $standardPlanReviews = Review::where('plan', 'Standard Membership')->paginate(10);
+        // dump($standardPlanReviews);
         // return View::make('admin.clients.index', compact('client'));
-        return $dataTable->render('admin.analytics.index');
+        return $dataTable->render('admin.analytics.index', compact('standardPlanReviews'));
     }
 
     public function edit($id)

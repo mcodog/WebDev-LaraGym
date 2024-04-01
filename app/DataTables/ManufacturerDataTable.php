@@ -25,7 +25,11 @@ class ManufacturerDataTable extends DataTable
             ->addColumn('action', function ($manufacturer) {
                 return "<span><a href='". url('manufacturer/'. $manufacturer->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('manufacturer/'. $manufacturer->id.'/delete') ."'>Delete</a></span>";
             })
-            ->setRowId('id');
+            ->addColumn('image', function ($equipment) {
+                return "<img src='". url($equipment->getImage()) ."' alt='equipment' style='width:50px;'>";
+            })
+            ->setRowId('id')
+            ->rawColumns(['action', 'image']);
     }
 
     /**
@@ -75,6 +79,11 @@ class ManufacturerDataTable extends DataTable
     {
         return [
             Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::computed('image')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

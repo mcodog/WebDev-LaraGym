@@ -26,7 +26,11 @@ class EquipmentDataTable extends DataTable
             ->addColumn('action', function ($equipment) {
                 return "<span><a href='". url('equipment/'. $equipment->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('equipment/'. $equipment->id.'/delete') ."'>Delete</a></span>";
             })
-            ->setRowId('id');
+            ->addColumn('image', function ($equipment) {
+                return "<img src='". url($equipment->getImage()) ."' alt='Manufacturer' style='width:50px;'>";
+            })
+            ->setRowId('id')
+            ->rawColumns(['action', 'image']);
     }
 
     /**
@@ -66,6 +70,11 @@ class EquipmentDataTable extends DataTable
     {
         return [
             Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::computed('image')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)

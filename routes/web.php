@@ -12,7 +12,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\Auth\LoginController;
-
+use App\Http\Controllers\ReviewController;
 use Illuminate\Http\Request;
 
 use App\Models\Service;
@@ -90,6 +90,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('sendbasicemail',[MailController::class, 'basic_email']);
+Route::post('review/store',[ReviewController::class, 'store'])->middleware('auth');
+
+
 
 // Route::post('search', function(Request $request) {
 //     $service = App\Models\Service::search($request->queryyy)->get();
