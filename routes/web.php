@@ -27,7 +27,7 @@ use App\Models\Service;
 
 Route::get('/', function () {
     return view('home');
-})->middleware('auth');
+})->name('client.home')->middleware('auth');
 
 
 Route::prefix('client')->group(function () {

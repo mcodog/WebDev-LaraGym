@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Symfony\Component\Console\Output\NullOutput;
 
 use Illuminate\Http\Request;
 use View;
@@ -35,9 +36,23 @@ class TransactionController extends Controller
     }
 
     public function store(Request $request) {
-        dump(Auth::user()->name);
-        dump(Auth::user()->email);
-        dump($request->membership_plan);
+        echo "<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><div class='m-3 alert alert-success'>A simple success alert with</div>";
+        flush();
+        echo "<script>
+        setTimeout(function(){
+            window.location.href = '".route('client.home')."';
+        }, 5000); // 5000 milliseconds = 5 seconds
+      </script>";
+        // echo Auth::user()->email;
+        // dump(Auth::user()->email);
+        // dump($request->membership_plan);
+        // dump($request->duration);
+        // dump($request->payment);
+        
+        // sleep(5);
+
+        // return Redirect::route('client.home');
+        
         // if (!(Auth::user()->role == "admin")) {
         //     $this->authorize('update', $dataTable);
         // }
