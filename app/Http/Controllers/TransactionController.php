@@ -12,6 +12,10 @@ use App\Models\Service;
 use App\Models\User;
 
 use App\Models\User_Info;
+use App\Models\User_Membership;
+
+use App\Mail\Signup;
+use Mail;
 
 class TransactionController extends Controller
 {
@@ -36,8 +40,25 @@ class TransactionController extends Controller
     }
 
     public function store(Request $request) {
-        echo "<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><div class='m-3 alert alert-success'>A simple success alert with</div>";
+        echo "<link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH' crossorigin='anonymous'><div class='m-3 alert alert-success'>Transaction Successful: ". Auth::user()->name ." availed ". $request->membership_plan ." Membership</div>";
         flush();
+
+        $transaction = New User_Membership();
+
+        $transaction->user_id = Auth::user()->id;
+        $transaction->membership_type = $request->membership_plan;
+        $transaction->duration = $request->duration;
+        $transaction->payment = $request->payment;
+
+
+        $payment = $request->payment;
+        $duration = $request->duration;
+        $membership = $request->membership_plan;
+
+        $transaction->save();
+
+        Mail::to(Auth::user()->email)->send(new Signup($payment, $membership, $duration));
+        
         echo "<script>
         setTimeout(function(){
             window.location.href = '".route('client.home')."';

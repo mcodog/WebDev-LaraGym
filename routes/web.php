@@ -9,6 +9,7 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ManufacturerController;
 
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\Auth\LoginController;
 
 use Illuminate\Http\Request;
@@ -82,6 +83,7 @@ Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('sendbasicemail',[MailController::class, 'basic_email']);
 
 // Route::post('search', function(Request $request) {
 //     $service = App\Models\Service::search($request->queryyy)->get();
