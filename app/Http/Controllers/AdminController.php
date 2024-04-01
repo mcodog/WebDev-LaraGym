@@ -45,4 +45,13 @@ class AdminController extends Controller
         $transaction->save();
         return Redirect::to('analytics');
 }
+
+public function delete($id)
+{
+    if (!(Auth::user()->role == "admin")) {
+        $this->authorize('update', $dataTable);
+    }
+    User_Membership::destroy($id);
+    return Redirect::to('analytics');
+}
 }

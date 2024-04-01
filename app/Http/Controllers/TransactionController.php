@@ -36,7 +36,14 @@ class TransactionController extends Controller
 
     public function trainwithus() {
         // print("dsa");
-        return View::make('client.membership.index');
+        $MembershipData = User_Membership::where('user_id', Auth::user()->id)->get();
+        // dump($MembershipData->first()->membership_type);
+        if($MembershipData->isEmpty()) {
+            return View::make('client.membership.index');
+        } else {
+            return View::make('client.membership.review', compact('MembershipData'));
+        }
+        
     }
 
     public function store(Request $request) {

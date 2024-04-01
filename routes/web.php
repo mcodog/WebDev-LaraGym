@@ -83,6 +83,7 @@ Route::post('{id}/save-profile', [TransactionController::class, 'saveProfile'])-
 Route::get('/analytics', [AdminController::class, 'index'])->name('analytics')->middleware('auth');
 Route::get('/analytics/{id}/edit', [AdminController::class, 'edit'])->name('analytics-edit')->middleware('auth');
 Route::post('/analytics/{id}/update', [AdminController::class, 'update'])->name('analytics-update')->middleware('auth');
+Route::get('/analytics/{id}/delete', [AdminController::class, 'delete'])->name('analytics-delete')->middleware('auth');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
