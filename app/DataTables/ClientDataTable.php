@@ -85,6 +85,7 @@ class ClientDataTable extends DataTable
             Column::make('gender'),
             Column::make('membership_type'),
             Column::make('total_visit'),
+            Column::make('status'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];

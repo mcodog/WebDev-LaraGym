@@ -11,18 +11,24 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('clients', function (Blueprint $table) {
-            
+        Schema::table('client', function (Blueprint $table) {
+            // Add the 'status' column
+            $table->string('status')->default('Pending'); // You can modify the data type and default value as needed
         });
     }
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
     public function down(): void
     {
-        Schema::table('clients', function (Blueprint $table) {
-            //
+        Schema::table('client', function (Blueprint $table) {
+            // Drop the 'status' column if the migration is rolled back
+            $table->dropColumn('status');
         });
     }
-};
+}
+
+?>

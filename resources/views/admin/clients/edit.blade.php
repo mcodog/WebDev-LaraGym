@@ -71,6 +71,15 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" name="status" id="status">
+                        <option value="{{ $client->status }}">{{ $client->status }}</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Active">Active</option>
+                        <option value="Terminated">Terminated</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <label for="expiration_date">Expiration Date</label>
                     <input type="date" class="form-control" name="expiration_date" value="{{ date('Y-m-d', strtotime($client->membership_expiration)) }}">
                 </div>
