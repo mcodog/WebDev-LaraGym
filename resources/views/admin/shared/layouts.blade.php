@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                             <li class="nav-item">
-                                <a class="nav-link" href="/employee">Analytics</a>
+                                <a class="nav-link" href="/analytics">Analytics</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/client">Accounts</a>

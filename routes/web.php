@@ -7,6 +7,7 @@ use App\Http\Controllers\EmployeeController;
 
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\ManufacturerController;
+use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\MailController;
@@ -78,6 +79,10 @@ Route::get('/trainwithus', [TransactionController::class, 'trainwithus'])->name(
 Route::post('/Store', [TransactionController::class, 'store'])->name('train.store');
 Route::get('/profile', [TransactionController::class, 'getProfile'])->name('get.profile');
 Route::post('{id}/save-profile', [TransactionController::class, 'saveProfile'])->name('save.profile');
+
+Route::get('/analytics', [AdminController::class, 'index'])->name('analytics')->middleware('auth');
+Route::get('/analytics/{id}/edit', [AdminController::class, 'edit'])->name('analytics-edit')->middleware('auth');
+Route::post('/analytics/{id}/update', [AdminController::class, 'update'])->name('analytics-update')->middleware('auth');
 
 Auth::routes();
 Route::get('/logout', [LoginController::class, 'logout']);
