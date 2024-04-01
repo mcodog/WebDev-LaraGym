@@ -2,12 +2,23 @@
 
 <style>
     body {
-        background-image: rgba(255, 255, 255, 0);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        color: white; /* Change text color to white */
-    }
+    position: relative; /* Ensure proper stacking order */
+    background-image: url('{{ asset('images/background1.jpg') }}');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity here */
+    z-index: -1; /* Place behind the content */
+}
 
     .transparent-card {
         background-image: rgba(255, 255, 255, 0); /* Set background image */

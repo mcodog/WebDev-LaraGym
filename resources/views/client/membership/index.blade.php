@@ -1,6 +1,14 @@
 @extends('admin.shared.layouts')
 
 @section('content')
+    <style>
+        body {
+            background-image: url('{{ asset('images/background1.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
