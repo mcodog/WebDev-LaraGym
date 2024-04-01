@@ -1,4 +1,13 @@
 @extends('layouts.app')
+<style>
+    body {
+            position: relative;
+            background-image: url('{{ asset('images/background3.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+</style>
 
 @section('content')
 <div class="container">

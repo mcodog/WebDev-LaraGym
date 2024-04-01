@@ -25,12 +25,12 @@
         }
 
         body {
-    position: relative; /* Ensure proper stacking order */
-    background-image: url('{{ asset('images/background1.jpg') }}');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
+            position: relative; /* Ensure proper stacking order */
+            background-image: url('{{ asset('images/background1.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
 
 body::before {
     content: '';
