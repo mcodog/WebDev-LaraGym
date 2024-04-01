@@ -1,76 +1,59 @@
 @extends('admin.shared.layouts')
 
-    <style>
-        body {
-            background-image: url('{{ asset("images/background.jpg") }}');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #49243E; /* Change the background color as needed */
-            color: white; /* Change text color to white */
-        }
+<style>
+    body {
+        background-image: rgba(255, 255, 255, 0);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: white; /* Change text color to white */
+    }
 
-        .transparent-container {
-            background-color: #C6EBC5; /* Set background color with alpha value for transparency */
-            padding: 10px; /* Add padding for better visibility */
-            border-radius: 10px; /* Add border radius for rounded corners */
-        }
+    .transparent-card {
+        background-image: rgba(255, 255, 255, 0); /* Set background image */
+        background-size: cover; /* Cover the entire card with the background image */
+        border: none; /* Remove card border */
+        color: black; /* Change card text color to black */
+        transition: box-shadow 0.3s; /* Add transition effect for box shadow */
+    }
 
-        .transparent-card {
-            background-color: transparent !important; /* Set card background color to transparent */
-            border: none; /* Remove card border */
-            color: #E178C5; /* Change card text color to white */
-        }
-    </style>
-    
+    /* Set image height and make it cover the container */
+    .card-img-top {
+        height: 250px;
+        object-fit: cover;
+    }
+
+    /* Add padding to the container */
+    .card-container {
+        padding: 10px;
+    }
+
+    /* Add box shadow and elevate effect on hover */
+    .transparent-card:hover {
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); /* Add box shadow */
+        transform: translateY(-5px); /* Elevate effect */
+    }
+</style>
+
 @section('content')
-<div class="container transparent-container">
+<div class="container card-container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-6 mb-5">
             <div class="card transparent-card">
-                <div class="card-header">Welcome to Our Gym</div>
-
+                <img class="card-img-top" src="{{ asset('images/background.jpg') }}" alt="Card image">
                 <div class="card-body">
-                    <h2>Get Fit, Stay Fit</h2>
-                    <p>At our gym, we're dedicated to helping you achieve your fitness goals. Whether you're looking to lose weight, build muscle, or improve your overall health, we have the resources and support you need.</p>
-                    <p>Our state-of-the-art facilities and experienced trainers are here to guide you every step of the way. From group classes to personalized training programs, we offer a variety of options to suit your needs and preferences.</p>
-                    <p>Join us today and start your journey to a healthier, happier you!</p>
+                    <h5 class="card-title">Train with Us</h5>
+                    <p class="card-text">This is a description of the card. It can contain additional information about the card content.</p>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
+        <div class="col-md-6 mb-5">
             <div class="card transparent-card">
-                <div class="card-header">Membership Options</div>
-
+                <img class="card-img-top" src="{{ asset('images/background2.jpg') }}" alt="Card image">
                 <div class="card-body">
-                    <p>Choose the membership plan that best fits your lifestyle:</p>
-                    <ul>
-                        <li>Standard Membership - Access to our gym facilities</li>
-                        <li>Premium Membership - Additional perks and benefits</li>
-                        <li>VIP Membership - Exclusive access and privileges</li>
-                    </ul>
-                    <p>Sign up today and take the first step towards a healthier you!</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row justify-content-center mt-4">
-        <div class="col-md-8">
-            <div class="card transparent-card">
-                <div class="card-header">Contact Us</div>
-
-                <div class="card-body">
-                    <p>Have questions or need more information? Contact us:</p>
-                    <ul>
-                        <li>Phone: 123-456-7890</li>
-                        <li>Email: info@example.com</li>
-                        <li>Address: 123 Gym Street, City, Country</li>
-                    </ul>
-                    <p>Our team is here to assist you!</p>
+                    <h5 class="card-title">Coaching</h5>
+                    <p class="card-text">This is a description of the card. It can contain additional information about the card content.</p>
                 </div>
             </div>
         </div>
