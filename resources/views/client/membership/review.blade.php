@@ -33,17 +33,20 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+            <form action="review/store" method="POST">
+              @csrf
                 <div class="card">
                 <div class="card-header">Membership Information</div>
                     <div class="card-body">
-                        <p>Membership Plan: {{ $MembershipData->first()->membership_type }}</p>
-                        <p>Duration: {{ $MembershipData->first()->duration }} Month/s</p>
+                        <p>User ID: <input type="text" name="user" value ="{{ $MembershipData->first()->user_id }}"readonly> </p> 
+                        <p>Membership Plan:  <input type="text" name="plan" value ="{{ $MembershipData->first()->membership_type }}"readonly></p>
+                        <p>Duration:<input type="text" name="duration" value ="{{ $MembershipData->first()->duration }}"readonly> </p>
                     </div>
                 </div>
                 <br>
                 <div class="card">
                     <div class="card-header">Review</div>
-                    <form action="#">
+                    
 
                     <div class="card-body">
                     <div class="rating d-flex flex-row-reverse justify-content-center">

@@ -55,6 +55,7 @@ class ClientController extends Controller
         $client->membership_expiration = $expiration;
         $client->total_visit = $visits;
         
+        
         if(request()->has('image')){
             // $imagePath = request()->file('image')->store('category', 'public');
             $client->img_path = request()->file('image')->store('client', 'public');;
@@ -102,6 +103,7 @@ class ClientController extends Controller
         $client->gender = $gender;
         $client->membership_type = $type;
         $client->membership_expiration = $expiration;
+        $client->status = $request->status;
 
         if($client->img_path == null) {
             if(request()->has('image')){

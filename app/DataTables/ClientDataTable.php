@@ -25,7 +25,11 @@ class ClientDataTable extends DataTable
             ->addColumn('action', function ($client) {
                 return "<span><a href='". url('client/'. $client->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('client/'. $client->id.'/delete') ."'>Delete</a></span>";
             })
-            ->setRowId('id');
+            ->addColumn('image', function ($clients) {
+                return "<img src='". url($clients->getImage()) ."' alt='Manufacturer' style='width:50px;'>";
+            })
+            ->setRowId('id')
+            ->rawColumns(['action', 'image']);
     }
 
     /**
@@ -69,6 +73,11 @@ class ClientDataTable extends DataTable
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
+            Column::computed('image')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
             Column::make('id'),
             Column::make('first_name'),
             Column::make('last_name'),
@@ -76,6 +85,7 @@ class ClientDataTable extends DataTable
             Column::make('gender'),
             Column::make('membership_type'),
             Column::make('total_visit'),
+            Column::make('status'),
             Column::make('created_at'),
             Column::make('updated_at'),
         ];

@@ -25,7 +25,11 @@ class EmployeeDataTable extends DataTable
             ->addColumn('action', function ($employee) {
                 return "<span><a href='". url('employee/'. $employee->id .'/edit') ."'>Edit</a> &nbsp <a href='". url('employee/'. $employee->id.'/delete') ."'>Delete</a></span>";
             })
-            ->setRowId('id');
+            ->addColumn('image', function ($employee) {
+                return "<img src='". url($employee->getImage()) ."' alt='Manufacturer' style='width:50px;'>";
+            })
+            ->setRowId('id')
+            ->rawColumns(['action', 'image']);
     }
 
     /**
@@ -65,6 +69,11 @@ class EmployeeDataTable extends DataTable
     {
         return [
             Column::computed('action')
+                  ->exportable(false)
+                  ->printable(false)
+                  ->width(60)
+                  ->addClass('text-center'),
+            Column::computed('image')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
