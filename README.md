@@ -83,7 +83,7 @@ php artisan db:seed
         <th>Not Started</th>
     </tr>
     <tr>
-        <th>✖</th>
+        <th>✔</th>
         <th>TT Lec</th>
         <th>Not Started</th>
     </tr>
