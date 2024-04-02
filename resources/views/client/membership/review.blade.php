@@ -2,6 +2,7 @@
 
 @section('content')
 <style>
+  
     .rating {
   display: inline-block;
 }

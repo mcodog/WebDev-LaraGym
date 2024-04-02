@@ -17,6 +17,41 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0; /* Reset default margin */
+        }
+
+        body {
+            position: relative; /* Ensure proper stacking order */
+            background-image: url('{{ asset('images/background1.jpg') }}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Adjust opacity here */
+    z-index: -1; /* Place behind the content */
+}
+
+        #app {
+            flex: 1;
+        }
+        footer {
+            flex-shrink: 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
 .dropdown {
   position: relative;
@@ -192,84 +227,17 @@
                     </ul>
                 </div>
             </div>
+            
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
     @stack('scripts')
+    <footer class="footer mt-auto py-3 bg-light">
+        <div class="container text-center">
+            <span class="text-muted">FitZone</span>
+        </div>
+    </footer>
 </body>
 </html>
-    <!-- </div>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Client</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa; /* Light gray background */
-        }
-        .container {
-            background-color: #ffffff; /* White container background */
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-        }
-        .form-group label {
-            font-weight: bold;
-        }
-        .btn-primary {
-            background-color: #007bff; /* Blue primary button */
-            border-color: #007bff;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            border-color: #0056b3;
-        }
-    </style>
-</head>
-<body>
-    <div class="container mt-5">
-        <h1>Create Client</h1>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <form enctype="multipart/form-data" action="{{ route('client.store') }}" method="POST" class="mt-4">
-            @csrf
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="first_name">First Name</label>
-                        <input type="text" class="form-control" name="first_name">
-                    </div>
-                    Other form fields
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="file" class="form-control-file" name="image">
-                    </div>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
- -->
