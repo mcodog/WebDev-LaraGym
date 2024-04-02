@@ -18,6 +18,6 @@ class ReviewController extends Controller
 
         $review->save();
 
-
+        return Redirect::to('home');
     }
 }

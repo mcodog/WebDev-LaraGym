@@ -10,6 +10,15 @@ use Auth;
 use Redirect;
 use App\Models\Service;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Manufacturer;
+// use Illuminate\Http\Request;
+// use View;
+// use Redirect;
+use App\DataTables\ManufacturerDataTable;
+
+use App\Http\Requests\StoreManufacturerRequest;
+// use Auth;
 
 use App\Models\User_Info;
 use App\Models\User_Membership;
@@ -68,7 +77,7 @@ class TransactionController extends Controller
         
         echo "<script>
         setTimeout(function(){
-            window.location.href = '".route('client.home')."';
+            window.location.href = '".route('home')."';
         }, 5000); // 5000 milliseconds = 5 seconds
       </script>";
         // echo Auth::user()->email;
@@ -118,11 +127,21 @@ class TransactionController extends Controller
         $users = DB::table('users')
         // ->join('user_info', 'user_info.id', '=', 'users.id')
         ->join('user_info', 'user_info.id', '=', 'users.id')
-        ->select('users.name AS name', 'users.email AS email', 'user_info.age AS age', 'user_info.address AS address', 'user_info.gender AS gender', 'user_info.image_path AS image_path')
+        ->select('users.name AS name', 'users.email AS email', 'user_info.age AS age', 'user_info.address AS address', 'user_info.gender AS gender', 'user_info.image_path AS image_path', 'users.id as id')
         ->where('users.id', Auth::user()->id) // Add your where condition here
         ->get();
-        // dump(Auth::user()->id);
+        // dump($users->first());
         return View::make('auth.profile', compact('users'));
+    }
+
+    public function saveImage(Request $request, $id) {
+        $user = User_Info::find($id);
+        if(request()->has('image')){
+            // $imagePath = request()->file('image')->store('category', 'public');
+            $user->image_path = request()->file('image')->store('users', 'public');;
+        }
+        $user->save();
+        return Redirect::to('profile');
     }
 
     public function saveProfile(Request $request, $id) {

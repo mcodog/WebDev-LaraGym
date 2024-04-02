@@ -9,5 +9,14 @@ class User_Info extends Model
 {
     use HasFactory;
 
+
+
     public $table = 'user_info';
+
+    public function getImage(){
+        if($this->img_path){
+            return url('storage/'. $this->img_path);
+        }
+        return URL::asset('storage/equipments/default-equipments.png');
+    }
 }

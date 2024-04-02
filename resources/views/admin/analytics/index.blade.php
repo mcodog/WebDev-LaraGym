@@ -81,6 +81,31 @@
                         </div>
                         <div id="one" role="tabpanel" class="tab-pane fade">
                         <div class="alert alert-info">Reviews - Premium Membership</div>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr class="thead-dark">
+                                    <th>Plan</th>
+                                    <th>Rating</th>
+                                    <th>Comment</th>
+                                    <th>User</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($premium as $reviews)
+                            
+                            <tr>
+                                <td>{{ $reviews->plan }}</td>
+                                <td>{{ $reviews->rating }}</td>
+                                <td>{{ $reviews->comment }}</td>
+                                <td>{{ $reviews->user_id }}</td>
+                               
+                            </tr>
+                            
+                            
+                            @endforeach
+                            </tbody>
+                        </table>
+                        {{ $premium->links() }}
                         </div>
                         <div id="two" role="tabpanel" class="tab-pane fade">
                         <div class="alert alert-info">Two</div>
@@ -90,6 +115,31 @@
                         </div>
                         <div id="contact" role="tabpanel" class="tab-pane fade">
                         <div class="alert alert-info">Reviews - VIP Membership</div>
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr class="thead-dark">
+                                    <th>Plan</th>
+                                    <th>Rating</th>
+                                    <th>Comment</th>
+                                    <th>User</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($vip as $reviews)
+                            
+                            <tr>
+                                <td>{{ $reviews->plan }}</td>
+                                <td>{{ $reviews->rating }}</td>
+                                <td>{{ $reviews->comment }}</td>
+                                <td>{{ $reviews->user_id }}</td>
+                               
+                            </tr>
+                            
+                            
+                            @endforeach
+                            </tbody>
+                        </table>
+                        {{ $vip->links() }}
                         </div>
                     </div>
                     </div>

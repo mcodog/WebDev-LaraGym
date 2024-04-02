@@ -122,7 +122,7 @@
                                 <a class="nav-link" href="/analytics">Analytics</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/client">Accounts</a>
+                                <a class="nav-link" href="/accounts">Accounts</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/client">Training Services</a>
@@ -171,9 +171,12 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('get.profile')}}">
-                                        Profile
+                                @if (Auth::user()->role == "user")
+                                <a class="dropdown-item" href="{{ route('get.profile')}}">
+                                        <img src="" alt=""> Profile
                                     </a>
+                        @endif
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

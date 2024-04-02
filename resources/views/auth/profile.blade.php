@@ -16,8 +16,17 @@
 
                     <div class="d-flex flex-direction-row">
                         <div class="picture flex-grow-1 border">
-                            <img src="{{ asset('public/users/user.jpg') }}" alt="user profile">
-                            <button><i class="fas fa-pen"></i></button>
+                            @if($users->first()->image_path == null)
+                                <img style="width:100px;" src="{{ url('storage/users/user-default.png') }}" alt="user profile default">
+                            @else
+                                <img style="width:100px;" src="{{ url('storage/'. $users->first()->image_path) }}" alt="user profile">
+                            @endif
+                            <form action="{{ url('profile/'. $users->first()->id .'/save-image') }}" method="POST" enctype="multipart/form-data">
+@csrf
+                            <input type="file" name="image">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button class="btn btn-light border-dark">Cancel</button>
+                            </form>
                         </div>
                         <div class="inputs flex-grow-1 border">
                             <p>Name: <span id="name">{{ Auth::user()->name }}</span> <button class="edit-btn" onclick="toggleEdit('name')"><i class="fas fa-pen"></i></button></p>
