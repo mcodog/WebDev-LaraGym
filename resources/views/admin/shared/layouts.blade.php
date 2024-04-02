@@ -160,7 +160,7 @@ body::before {
                                 <a class="nav-link" href="/accounts">Accounts</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/client">Training Services</a>
+                                <a class="nav-link" href="/coaching">Training Services</a>
                             </li>
                         </ul>
                     @elseif (Auth::user()->role == "user")

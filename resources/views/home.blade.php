@@ -8,9 +8,9 @@
         font-size: 36px; /* Set the font size */
         margin-top: 100px; /* Add space above the h1 */
         margin-bottom: 50px; /* Add space below the h1 */
+        opacity: 0; /* Initially set opacity to 0 */
+        animation: fade-in 2s ease forwards; /* Fade in animation */
     }
-
-
 
     body {
         position: relative; /* Ensure proper stacking order */
@@ -37,6 +37,7 @@
         border: none; /* Remove card border */
         color: black; /* Change card text color to black */
         transition: box-shadow 0.3s; /* Add transition effect for box shadow */
+        animation: slide-up 2s ease; /* Slide up animation */
     }
 
     /* Set image height and make it cover the container */
@@ -54,6 +55,24 @@
     .transparent-card:hover {
         box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3); /* Add box shadow */
         transform: translateY(-5px); /* Elevate effect */
+    }
+
+    @keyframes slide-up {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
     }
 
 </style>
